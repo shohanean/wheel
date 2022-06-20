@@ -22,7 +22,10 @@
                     <form method="POST" action="{{ route('career_wheel_post') }}">
                         @csrf
                         <div class="mb-3">
-                            <label for="phone_number" class="form-label">Phone Number (017xxxxxxxx)</label>
+                            <label for="phone_number" class="form-label">
+                                Phone Number (017xxxxxxxx)
+                                <span class="text-danger">*</span>
+                            </label>
                             <input type="text" class="form-control @error ('phone_number') is-invalid @enderror" id="phone_number" name="phone_number">
                             @error ('phone_number')
                                 <span class="text-danger">{{ $message }}</span>
