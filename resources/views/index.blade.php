@@ -8,47 +8,54 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Wheel</title>
+    <title>ভাগ্যের চাকা</title>
   </head>
   <body>
     <div class="container">
         <div class="row">
             <div class="col-6 m-auto mt-5">
                 <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Give your phone number</h5>
-                </div>
-                <div class="card-body">
-                    <form method="POST" action="{{ route('career_wheel_post') }}">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="phone_number" class="form-label">
-                                Phone Number (017xxxxxxxx)
-                                <span class="text-danger">*</span>
-                            </label>
-                            <input type="text" class="form-control @error ('phone_number') is-invalid @enderror" id="phone_number" name="phone_number">
-                            @error ('phone_number')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone_number" class="form-label">Where you are interested?</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Online
+                    <div class="card-header">
+                        <h5 class="card-title">ভাগ্যের চাকা</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('career_wheel_post') }}">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="phone_number" class="form-label">
+                                    ফোন নাম্বার (০১৭xxxxxxxx)
                                 </label>
+                                <input type="text" class="form-control @error ('phone_number') is-invalid @enderror" id="phone_number" name="phone_number">
+                                @error ('phone_number')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Offline
-                                </label>
+                            <div class="mb-3">
+                                <label for="phone_number" class="form-label">আপনি কোন ধরনের ব্যাচে আগ্রহী?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="course_type" id="online_radio" value="online" checked {{ (old('course_type') == 'online') ? 'checked':'' }}>
+                                    <label class="form-check-label" for="online_radio">
+                                        অনলাইন
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="course_type" id="offline_radio" value="offline" {{ (old('course_type') == 'offline') ? 'checked':'' }}>
+                                    <label class="form-check-label" for="offline_radio">
+                                        অফলাইন
+                                    </label>
+                                </div>
+                                @error ('course_type')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
+                            <button type="submit" class="btn btn-primary">
+                                সাবমিট
+                            </button>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        আমার কাছে কোড আছে। <a href="{{ url('verification') }}">ক্লিক করুন</a>
+                    </div>
                 </div>
             </div>
         </div>

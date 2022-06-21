@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Wheel</title>
+    <title>ভাগ্যের চাকা</title>
   </head>
   <body>
     <div class="container">
@@ -16,7 +16,9 @@
             <div class="col-6 m-auto mt-5">
                 <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Verify with your phone number and code</h5>
+                    <h5 class="card-title">
+                        আপনার ফোন নাম্বার ও কোড দিয়ে ফেরিভাই করুন
+                    </h5>
                 </div>
                 <div class="card-body">
                     @if (session('success'))
@@ -32,20 +34,22 @@
                     <form method="POST" action="{{ route('verification_post') }}">
                         @csrf
                         <div class="mb-3">
-                            <label for="phone_number" class="form-label">Phone Number (017xxxxxxxx)</label>
+                            <label for="phone_number" class="form-label">
+                                ফোন নাম্বার (০১৭xxxxxxxx)
+                            </label>
                             <input type="text" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" name="phone_number" value="{{ session('s_phone_number') }}{{ old('phone_number') }}">
                             @error('phone_number')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="code" class="form-label">Code</label>
+                            <label for="code" class="form-label">কোড</label>
                             <input type="text" class="form-control @error('code') is-invalid @enderror" id="code" name="code" value="{{ old('code') }}">
                             @error('code')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">সাবমিট</button>
                     </form>
                 </div>
                 </div>

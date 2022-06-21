@@ -16,6 +16,7 @@ class CreateWheelsTable extends Migration
         Schema::create('wheels', function (Blueprint $table) {
             $table->id();
             $table->string('phone_number')->unique();
+            $table->string('course_type');
             $table->string('code')->unique();
             $table->boolean('used_status')->default(false);
             $table->string('discount')->nullable();

@@ -1,33 +1,7 @@
-
-<!--
-    Winhweel.js wheel of fortune example by Douglas McKechie @ www.dougtesting.net
-    See website for tutorials and other documentation.
-
-    The MIT License (MIT)
-
-    Copyright (c) 2016 Douglas McKechie
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
--->
+<!DOCTYPE html>
 <html>
     <head>
-        <title>HTML5 Canvas Winning Wheel</title>
+        <title>ভাগ্যের চাকা</title>
         <link rel="stylesheet" href="{{ asset('winwheel') }}/main.css" type="text/css" />
         <script type="text/javascript" src="{{ asset('winwheel') }}/Winwheel.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
@@ -44,7 +18,7 @@
                     <div class="power_controls">
                         <br />
                         <br />
-                        <table class="power" cellpadding="10" cellspacing="0">
+                        {{-- <table class="power" cellpadding="10" cellspacing="0">
                             <tr>
                                 <th align="center">Power</th>
                             </tr>
@@ -57,12 +31,12 @@
                             <tr>
                                 <td align="center" id="pw1" onClick="powerSelected(1);">Low</td>
                             </tr>
-                        </table>
+                        </table> --}}
                         <br />
-                        <button onClick="startSpin()">Click to Spin</button>
-                        <img id="spin_button" src="{{ asset('winwheel') }}/spin_off.png" alt="Spin" onClick="startSpin();" />
+                        <button id="spin_button" onClick="startSpin();">Click to Spin</button>
+                        {{-- <img id="spin_button" src="{{ asset('winwheel') }}/spin_off.png" alt="Spin" onClick="startSpin();" /> --}}
                         <br /><br />
-                        &nbsp;&nbsp;<a href="#" onClick="resetWheel(); return false;">Play Again</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reset)
+                        {{-- &nbsp;&nbsp;<a href="#" onClick="resetWheel(); return false;">Play Again</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reset) --}}
                     </div>
                 </td>
                 <td width="438" height="582" class="the_wheel" align="center" valign="center">
