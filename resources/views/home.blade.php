@@ -10,6 +10,11 @@
                 </div>
 
                 <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <table class="table table-bordered table-hover text-center">
                         <thead>
                             <tr>
@@ -20,6 +25,7 @@
                                 <th scope="col">Used Status</th>
                                 <th scope="col">Discount</th>
                                 <th scope="col">Code Generated At</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,6 +56,11 @@
                                     </td>
                                     <td>{{ $wheel->discount ?? '-' }}</td>
                                     <td>{{ $wheel->created_at->diffforhumans() }}</td>
+                                    <td>
+                                        @if (!$wheel->used_status)
+                                            <a href="{{ url('resend/code') }}/{{ $wheel->id }}" class="btn btn-sm btn-warning">Resend Code</a>
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

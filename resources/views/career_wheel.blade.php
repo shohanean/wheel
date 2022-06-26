@@ -2,43 +2,26 @@
 <html>
     <head>
         <title>ভাগ্যের চাকা</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{ asset('winwheel') }}/main.css" type="text/css" />
         <script type="text/javascript" src="{{ asset('winwheel') }}/Winwheel.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     </head>
     <body>
         <div align="center">
-            <h1>Check Your Luck!!!</h1>
-            <br>
-            <br>
-            <br>
+            <h1>
+                ক্রিয়েটিভ আইটির সকল কোর্সে ইদ উল আযহা স্পেশাল অফার
+            </h1>
+            <h1>
+                আপনার ভাগ্যের চাকা ঘুরিয়ে পেয়ে যান ৫৫% পর্যন্ত ডিস্কাউন্ট
+            </h1>
+            <h2>[Condition Applied]</h2>
+            <h1>
+
+                <button id="spin_button" onClick="startSpin();">Spin Now</button>
+            </h1>
             <table cellpadding="0" cellspacing="0" border="0">
             <tr>
-                <td>
-                    <div class="power_controls">
-                        <br />
-                        <br />
-                        {{-- <table class="power" cellpadding="10" cellspacing="0">
-                            <tr>
-                                <th align="center">Power</th>
-                            </tr>
-                            <tr>
-                                <td width="78" align="center" id="pw3" onClick="powerSelected(3);">High</td>
-                            </tr>
-                            <tr>
-                                <td align="center" id="pw2" onClick="powerSelected(2);">Med</td>
-                            </tr>
-                            <tr>
-                                <td align="center" id="pw1" onClick="powerSelected(1);">Low</td>
-                            </tr>
-                        </table> --}}
-                        <br />
-                        <button id="spin_button" onClick="startSpin();">Click to Spin</button>
-                        {{-- <img id="spin_button" src="{{ asset('winwheel') }}/spin_off.png" alt="Spin" onClick="startSpin();" /> --}}
-                        <br /><br />
-                        {{-- &nbsp;&nbsp;<a href="#" onClick="resetWheel(); return false;">Play Again</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reset) --}}
-                    </div>
-                </td>
                 <td width="438" height="582" class="the_wheel" align="center" valign="center">
                     <canvas id="canvas" width="434" height="434">
                         <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
@@ -46,6 +29,8 @@
                 </td>
             </tr>
         </table>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             // Create new wheel object specifying the parameters at creation time.
             let theWheel = new Winwheel({
@@ -54,15 +39,32 @@
                 'textFontSize'    : 30,         // Set default font size for the segments.
                 'textOrientation' : 'horizontal', // Make text vertial so goes down from the outside of wheel.
                 'textAlignment'   : 'outer',    // Align text to outside of wheel.
-                'numSegments'     : 6,         // Specify number of segments.
+                'numSegments'     : 22,         // Specify number of segments.
                 'segments'        :             // Define segments including colour and text.
                 [                               // font size and test colour overridden on backrupt segments.
-                   {'fillStyle' : '#ffffff', 'text' : '10%'},
-                   {'fillStyle' : '#3cb878', 'text' : '60%'},
-                   {'fillStyle' : '#ee1c24', 'text' : 'Bad Luck', 'textFontSize' : 25},
-                   {'fillStyle' : '#f6989d', 'text' : '90%'},
-                   {'fillStyle' : '#00aef0', 'text' : '15%'},
-                   {'fillStyle' : '#f26522', 'text' : '65%'}
+                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : '35%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : 'SORRY', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#2EAA70', 'text' : '40%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'OH NO', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : 'NO LUCK', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#D3494A', 'text' : '50%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#3266E3', 'text' : 'SORRY', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'OH NO', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '45%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : 'NO LUCK', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : 'SORRY', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : '35%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : 'OH LUCK', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'OH NO', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '30%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : 'SORRY', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : '55%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'NO LUCK', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : 'SORRY', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : 'OH NO', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : '30%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : 'NO LUCK', 'textFontSize' : 16},
+                //    {'textFillStyle' : 'white', 'fillStyle' : '#ee1c24', 'text' : 'Bad Luck', 'textFontSize' : 25},
                 ],
                 'animation' :           // Specify the animation to use.
                 {
@@ -75,7 +77,7 @@
                 },
                 'pins' :				// Turn pins on.
                 {
-                    'number'     : 24,
+                    'number'     : 22,
                     'fillStyle'  : 'silver',
                     'outerRadius': 4,
                 }
@@ -184,15 +186,43 @@
             // -------------------------------------------------------
             function alertPrize(indicatedSegment)
             {
+                $(document).ready(function(){
+
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type:'POST',
+                        url:'/final/shot',
+                        data: {final_text: indicatedSegment.text, session_value: "{{ session('status') }}"},
+                        success: function (data) {
+                            Swal.fire({
+                            title: 'আপনার ফলাফল',
+                            text: data,
+                            icon: 'success',
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'OK'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = "{{ url('/') }}";
+                                }
+                            })
+                        }
+                    });
+                });
                 // Just alert to the user what happened.
                 // In a real project probably want to do something more interesting than this with the result.
-                if (indicatedSegment.text == 'LOOSE TURN') {
-                    alert('Sorry but you loose a turn.');
-                } else if (indicatedSegment.text == 'BANKRUPT') {
-                    alert('Oh no, you have gone BANKRUPT!');
-                } else {
-                    alert("You have won " + indicatedSegment.text);
-                }
+                // if (indicatedSegment.text == 'LOOSE TURN') {
+                //     alert('Sorry but you loose a turn.');
+                // } else if (indicatedSegment.text == 'BANKRUPT') {
+                //     alert('Oh no, you have gone BANKRUPT!');
+                // } else {
+                //     alert("You have won " + indicatedSegment.text);
+                // }
             }
         </script>
     </body>

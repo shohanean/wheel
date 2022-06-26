@@ -13,7 +13,7 @@
   <body>
     <div class="container">
         <div class="row">
-            <div class="col-6 m-auto mt-5">
+            <div class="col-12 col-md-6 m-auto mt-5">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">ভাগ্যের চাকা</h5>

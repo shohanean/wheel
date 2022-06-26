@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home', [
-            'wheels' => Wheel::all()
+            'wheels' => Wheel::latest()->get()
         ]);
     }
 }

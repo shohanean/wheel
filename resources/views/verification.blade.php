@@ -13,7 +13,7 @@
   <body>
     <div class="container">
         <div class="row">
-            <div class="col-6 m-auto mt-5">
+            <div class="col-12 col-md-6 m-auto mt-5">
                 <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">
@@ -37,14 +37,14 @@
                             <label for="phone_number" class="form-label">
                                 ফোন নাম্বার (০১৭xxxxxxxx)
                             </label>
-                            <input type="text" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" name="phone_number" value="{{ session('s_phone_number') }}{{ old('phone_number') }}">
+                            <input type="text" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" name="phone_number" value="{{ session('s_phone_number') }}{{ old('phone_number') }}01834833973">
                             @error('phone_number')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="code" class="form-label">কোড</label>
-                            <input type="text" class="form-control @error('code') is-invalid @enderror" id="code" name="code" value="{{ old('code') }}">
+                            <input type="text" class="form-control @error('code') is-invalid @enderror" id="code" name="code" value="{{ old('code') }}TYRAR">
                             @error('code')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror

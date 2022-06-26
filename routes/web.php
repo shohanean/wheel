@@ -8,6 +8,8 @@ Route::get('verification', [MainController::class, 'verification']);
 Route::post('verification', [MainController::class, 'verification_post'])->name('verification_post');
 Route::get('career/wheel', [MainController::class, 'career_wheel']);
 Route::post('career/wheel', [MainController::class, 'career_wheel_post'])->name('career_wheel_post');
+Route::post('final/shot', [MainController::class, 'final_shot']);
+Route::get('resend/code/{id}', [MainController::class, 'resend_code']);
 
 Auth::routes();
 

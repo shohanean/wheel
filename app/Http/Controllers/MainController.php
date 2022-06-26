@@ -34,9 +34,9 @@ class MainController extends Controller
         ])->exists()){
             $wheel = Wheel::where('phone_number', $request->phone_number)->first();
             if($wheel->used_status){
-                return back()->with('error', "এই ফোন নাম্বার এবং কোড ব্যবহার করে আপনি $wheel->discount% ডিস্কাউন্ট পেয়েছেন");
+                return back()->with('error', "এই ফোন নাম্বার এবং কোড ব্যবহার করে আপনি পেয়েছেন: $wheel->discount");
             }else{
-                return redirect('career/wheel')->with('status', 'All Good');
+                return redirect('career/wheel')->with('status', $request->phone_number);
             }
         }else{
             return back()->with('error', 'ফোন নাম্বারের সাথে কোড মিলে নাই');
@@ -62,7 +62,7 @@ class MainController extends Controller
         ]);
         $random_code = Str::upper(Str::random(5));
         //sms send metronet start
-        $response = Http::get("http://masking.metrotel.com.bd/smsnet/bulk/api?api_key=d5671ddcb22785c4bf647ffdc312dbcc273&mask=Creative IT&recipient=$request->phone_number&message=Your code is: $random_code");
+        $response = Http::get("http://masking.metrotel.com.bd/smsnet/bulk/api?api_key=d5671ddcb22785c4bf647ffdc312dbcc273&mask=Creative IT&recipient=$request->phone_number&message=আপনার কোড: $random_code");
         if(json_decode($response, true)['status'] == 'success'){
             Wheel::insert([
                 'phone_number' => $request->phone_number,
@@ -78,5 +78,32 @@ class MainController extends Controller
             echo "Try again";
         }
         //sms send metronet end
+    }
+    public function final_shot(Request $request)
+    {
+        $phone_number = $request->session_value;
+        $final_result = $request->final_text;
+        if(strpos($final_result, "%") !== false){
+            $message_to_send = "Congratulations! You have received $final_result discount on our professional courses. Soon you will get a call with details. You can also knock us at m.me/creativeITInstitute";
+        } else{
+            $message_to_send = "Congratulations! You have received a regular discount on our professional courses. Soon you will get a call with details. You can also knock us at m.me/creativeITInstitute";
+        }
+        Wheel::where('phone_number', $phone_number)->update([
+            'used_status' => true,
+            'discount' => $final_result
+        ]);
+        $response = Http::get("http://masking.metrotel.com.bd/smsnet/bulk/api?api_key=d5671ddcb22785c4bf647ffdc312dbcc273&mask=Creative IT&recipient=$phone_number&message=$message_to_send");
+        echo $final_result;
+    }
+    public function resend_code($id)
+    {
+        $wheel = Wheel::find($id);
+        $response = Http::get("http://masking.metrotel.com.bd/smsnet/bulk/api?api_key=d5671ddcb22785c4bf647ffdc312dbcc273&mask=Creative IT&recipient=$wheel->phone_number&message=আপনার কোড: $wheel->code");
+        if(json_decode($response, true)['status'] == 'success'){
+            return back()->with('success', 'Code Send Again to '.$wheel->phone_number);
+        }else{
+            echo "Something is wrong, contact with developer";
+        }
+
     }
 }
