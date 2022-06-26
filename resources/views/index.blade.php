@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="icon" type="image/png" href="https://www.creativeitinstitute.com/favicon-32x32.png"/>
     <title>ভাগ্যের চাকা</title>
   </head>
   <body>
@@ -16,7 +16,7 @@
             <div class="col-12 col-md-6 m-auto mt-5">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">ভাগ্যের চাকা</h5>
+                        <h5 class="card-title">ভাগ্যের চাকা ঘুরাতে  আপনার তথ্যটি দিন</h5>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('career_wheel_post') }}">
@@ -31,17 +31,17 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="phone_number" class="form-label">আপনি কোন ধরনের ব্যাচে আগ্রহী?</label>
+                                <label for="phone_number" class="form-label">আপনি কোর্সটি কিভাবে করতে আগ্রহী?</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="course_type" id="online_radio" value="online" checked {{ (old('course_type') == 'online') ? 'checked':'' }}>
                                     <label class="form-check-label" for="online_radio">
-                                        অনলাইন
+                                        অনলাইনে
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="course_type" id="offline_radio" value="offline" {{ (old('course_type') == 'offline') ? 'checked':'' }}>
                                     <label class="form-check-label" for="offline_radio">
-                                        অফলাইন
+                                        অফলাইনে
                                     </label>
                                 </div>
                                 @error ('course_type')

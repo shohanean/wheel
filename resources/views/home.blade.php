@@ -55,7 +55,15 @@
                                         @endif
                                     </td>
                                     <td>{{ $wheel->discount ?? '-' }}</td>
-                                    <td>{{ $wheel->created_at->diffforhumans() }}</td>
+                                    <td>
+                                        <div class="badge bg-info text-dark">
+                                            {{ $wheel->created_at->diffforhumans() }}
+                                        </div>
+                                        <br>
+                                        Date: {{ $wheel->created_at->format('d/m/Y') }}
+                                        <br>
+                                        Time: {{ $wheel->created_at->format('H:i:s A') }}
+                                    </td>
                                     <td>
                                         @if (!$wheel->used_status)
                                             <a href="{{ url('resend/code') }}/{{ $wheel->id }}" class="btn btn-sm btn-warning">Resend Code</a>

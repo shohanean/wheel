@@ -62,7 +62,7 @@ class MainController extends Controller
         ]);
         $random_code = Str::upper(Str::random(5));
         //sms send metronet start
-        $response = Http::get("http://masking.metrotel.com.bd/smsnet/bulk/api?api_key=d5671ddcb22785c4bf647ffdc312dbcc273&mask=Creative IT&recipient=$request->phone_number&message=আপনার কোড: $random_code");
+        $response = Http::get("http://masking.metrotel.com.bd/smsnet/bulk/api?api_key=d5671ddcb22785c4bf647ffdc312dbcc273&mask=Creative IT&recipient=$request->phone_number&message=Your Code is: $random_code");
         if(json_decode($response, true)['status'] == 'success'){
             Wheel::insert([
                 'phone_number' => $request->phone_number,
@@ -84,8 +84,10 @@ class MainController extends Controller
         $phone_number = $request->session_value;
         $final_result = $request->final_text;
         if(strpos($final_result, "%") !== false){
-            $message_to_send = "Congratulations! You have received $final_result discount on our professional courses. Soon you will get a call with details. You can also knock us at m.me/creativeITInstitute";
+            $display_message = "অভিনন্দন! আপনি ক্রিয়েটিভ আইটির প্রফেশনাল কোর্সে $final_result স্পেশাল ডিস্কাউন্টটি পেয়েছেন। খুব শীঘ্রই  আপনাকে কল করে বিস্তারিত জানিয়ে দেয়া হবে। আপনি চাইলে আমাদের অফিসিয়াল পেইজে নক করতে পারেন- m.me/creativeITInstitute অফারটি পেতে আপনার ফোনে পাঠানো মেসেজটি সংরক্ষণ করুন।";
+            $message_to_send = "Congratulations! You have received $final_result special discount on our professional courses. Soon you will get a call with details. You can also knock us at m.me/creativeITInstitute";
         } else{
+            $display_message = "অভিনন্দন! আপনি ক্রিয়েটিভ আইটির প্রফেশনাল কোর্সে রেগুলার ডিস্কাউন্টটি পেয়েছেন। খুব শীঘ্রই  আপনাকে কল করে বিস্তারিত জানিয়ে দেয়া হবে। আপনি চাইলে আমাদের অফিসিয়াল পেইজে নক করতে পারেন- m.me/creativeITInstitute অফারটি পেতে আপনার ফোনে পাঠানো মেসেজটি সংরক্ষণ করুন।";
             $message_to_send = "Congratulations! You have received a regular discount on our professional courses. Soon you will get a call with details. You can also knock us at m.me/creativeITInstitute";
         }
         Wheel::where('phone_number', $phone_number)->update([
@@ -93,7 +95,7 @@ class MainController extends Controller
             'discount' => $final_result
         ]);
         $response = Http::get("http://masking.metrotel.com.bd/smsnet/bulk/api?api_key=d5671ddcb22785c4bf647ffdc312dbcc273&mask=Creative IT&recipient=$phone_number&message=$message_to_send");
-        echo $final_result;
+        echo $display_message;
     }
     public function resend_code($id)
     {

@@ -12,13 +12,9 @@
             <h1>
                 ক্রিয়েটিভ আইটির সকল কোর্সে ইদ উল আযহা স্পেশাল অফার
             </h1>
+            <h3>আপনার ভাগ্যের চাকা ঘুরিয়ে পেয়ে যান ৫৫% পর্যন্ত ডিস্কাউন্ট</h3>
             <h1>
-                আপনার ভাগ্যের চাকা ঘুরিয়ে পেয়ে যান ৫৫% পর্যন্ত ডিস্কাউন্ট
-            </h1>
-            <h2>[Condition Applied]</h2>
-            <h1>
-
-                <button id="spin_button" onClick="startSpin();">Spin Now</button>
+                <button id="spin_button" onClick="startSpin();">চাকা ঘুরান</button>
             </h1>
             <table cellpadding="0" cellspacing="0" border="0">
             <tr>
@@ -199,7 +195,6 @@
                         data: {final_text: indicatedSegment.text, session_value: "{{ session('status') }}"},
                         success: function (data) {
                             Swal.fire({
-                            title: 'আপনার ফলাফল',
                             text: data,
                             icon: 'success',
                             showCancelButton: false,
