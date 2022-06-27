@@ -2,20 +2,22 @@
 <html>
     <head>
         <title>ভাগ্যের চাকা</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="icon" type="image/png" href="https://www.creativeitinstitute.com/favicon-32x32.png"/>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{ asset('winwheel') }}/main.css" type="text/css" />
         <script type="text/javascript" src="{{ asset('winwheel') }}/Winwheel.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     </head>
-    <body>
-        <div align="center">
-            <h1>
-                ক্রিয়েটিভ আইটির সকল কোর্সে ইদ উল আযহা স্পেশাল অফার
+    <body style="background-image: url('{{ asset('winwheel/bg.png') }}');">
+        {{-- <img src="{{ asset('winwheel/bg.png') }}" alt=""> --}}
+        <div align="center" class="mt-4">
+            <h1 class="fw-bold lh-lg">
+                ক্রিয়েটিভ আইটির
             </h1>
-            <h3>আপনার ভাগ্যের চাকা ঘুরিয়ে পেয়ে যান ৫৫% পর্যন্ত ডিস্কাউন্ট</h3>
-            <h1>
-                <button id="spin_button" onClick="startSpin();">চাকা ঘুরান</button>
-            </h1>
+            <h2 class="lh-lg" style="color:red">সকল কোর্সে নিশ্চিত ছাড়</h2>
+            <h3 class="lh-lg">ভাগ্যের চাকা ঘুরিয়ে পেয়ে যান স্পেশাল ডিস্কাউন্ট</h3>
+            <button class="my-3 px-5 btn btn-lg btn-success" id="spin_button" onClick="startSpin();">চাকা ঘুরান</button>
             <table cellpadding="0" cellspacing="0" border="0">
             <tr>
                 <td width="438" height="582" class="the_wheel" align="center" valign="center">
@@ -25,6 +27,7 @@
                 </td>
             </tr>
         </table>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
@@ -42,22 +45,22 @@
                    {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : 'SORRY', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#2EAA70', 'text' : '40%', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'OH NO', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : 'NO LUCK', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#D3494A', 'text' : '50%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#3266E3', 'text' : 'SORRY', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '45%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#D3494A', 'text' : 'SORRY', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#3266E3', 'text' : '50%', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'OH NO', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '45%', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : 'NO LUCK', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : 'SORRY', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : '35%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : 'OH LUCK', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : '35%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : 'SORRY', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : '30%', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'OH NO', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '30%', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : 'SORRY', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : '55%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'NO LUCK', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : 'SORRY', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : 'OH NO', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'OH NO', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '40%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : 'SORRY', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : '30%', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : 'NO LUCK', 'textFontSize' : 16},
                 //    {'textFillStyle' : 'white', 'fillStyle' : '#ee1c24', 'text' : 'Bad Luck', 'textFontSize' : 25},
@@ -74,8 +77,8 @@
                 'pins' :				// Turn pins on.
                 {
                     'number'     : 22,
-                    'fillStyle'  : 'silver',
-                    'outerRadius': 4,
+                    'fillStyle'  : '#FFF2A0',
+                    'outerRadius': 5,
                 }
             });
 
@@ -150,7 +153,7 @@
 
                     // Disable the spin button so can't click again while wheel is spinning.
                     document.getElementById('spin_button').src       = "{{ asset('winwheel') }}/spin_off.png";
-                    document.getElementById('spin_button').className = "";
+                    document.getElementById('spin_button').className = "d-none";
 
                     // Begin the spin animation by calling startAnimation on the wheel object.
                     theWheel.startAnimation();
