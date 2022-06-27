@@ -44,8 +44,8 @@ class MainController extends Controller
     }
     public function career_wheel()
     {
-        return view('career_wheel');
         if(session('status')){
+            return view('career_wheel');
         }else{
             abort(404);
         }
