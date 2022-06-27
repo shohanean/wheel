@@ -13,9 +13,16 @@
   <body>
     <div class="container">
         <div class="row">
+            <div class="col-6 col-md-2 m-auto mt-5">
+                <a href="https://www.creativeitinstitute.com/">
+                    <img class="img-fluid" src="https://b2bmap.com/public/uploads/companylogo/1612343612-logo.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-12 col-md-6 m-auto mt-5">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header text-center">
                         <h5 class="card-title">ভাগ্যের চাকা ঘুরাতে  আপনার তথ্যটি দিন</h5>
                     </div>
                     <div class="card-body">
@@ -25,7 +32,7 @@
                                 <label for="phone_number" class="form-label">
                                     ফোন নাম্বার (০১৭xxxxxxxx)
                                 </label>
-                                <input type="text" class="form-control @error ('phone_number') is-invalid @enderror" id="phone_number" name="phone_number">
+                                <input type="text" class="form-control @error ('phone_number') is-invalid @enderror" id="phone_number" name="phone_number" autofocus>
                                 @error ('phone_number')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror

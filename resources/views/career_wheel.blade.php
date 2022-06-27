@@ -9,24 +9,30 @@
         <script type="text/javascript" src="{{ asset('winwheel') }}/Winwheel.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     </head>
-    <body style="background-image: url('{{ asset('winwheel/bg.png') }}');">
-        {{-- <img src="{{ asset('winwheel/bg.png') }}" alt=""> --}}
-        <div align="center" class="mt-4">
-            <h1 class="fw-bold lh-lg">
-                ক্রিয়েটিভ আইটির
-            </h1>
-            <h2 class="lh-lg" style="color:red">সকল কোর্সে নিশ্চিত ছাড়</h2>
-            <h3 class="lh-lg">ভাগ্যের চাকা ঘুরিয়ে পেয়ে যান স্পেশাল ডিস্কাউন্ট</h3>
-            <button class="my-3 px-5 btn btn-lg btn-success" id="spin_button" onClick="startSpin();">চাকা ঘুরান</button>
-            <table cellpadding="0" cellspacing="0" border="0">
-            <tr>
-                <td width="438" height="582" class="the_wheel" align="center" valign="center">
-                    <canvas id="canvas" width="434" height="434">
-                        <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
-                    </canvas>
-                </td>
-            </tr>
-        </table>
+    <body style="background-image: url('{{ asset('winwheel/bg.png') }}'); background-repeat:no-repeat">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div align="center" class="mt-4">
+                        <h1 class="fw-bold lh-lg">
+                            ক্রিয়েটিভ আইটির
+                        </h1>
+                        <h2 class="lh-lg" style="color:red">সকল কোর্সে নিশ্চিত ছাড়</h2>
+                        <h3 class="lh-lg">ভাগ্যের চাকা ঘুরিয়ে পেয়ে যান স্পেশাল ডিস্কাউন্ট</h3>
+                        <button class="my-3 px-5 btn btn-lg btn-success" id="spin_button" onClick="startSpin();">চাকা ঘুরান</button>
+                            <table cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td width="438" height="582" class="the_wheel" align="center" valign="center">
+                                        <canvas id="canvas" width="434" height="434">
+                                            <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+                                        </canvas>
+                                    </td>
+                                </tr>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -42,27 +48,27 @@
                 'segments'        :             // Define segments including colour and text.
                 [                               // font size and test colour overridden on backrupt segments.
                    {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : '35%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : 'SORRY', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#2EAA70', 'text' : '40%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'OH NO', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '45%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#D3494A', 'text' : 'SORRY', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#3266E3', 'text' : '50%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'OH NO', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '45%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : 'NO LUCK', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : '35%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : 'SORRY', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : '30%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'OH NO', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '30%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : 'SORRY', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : '55%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '40%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#2EAA70', 'text' : '60%', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : 'OH NO', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '40%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#D3494A', 'text' : '45%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#3266E3', 'text' : '35%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : '45%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : 'NO LUCK', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : '45%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : '30%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : '40%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : '30%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : '55%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : 'OH NO', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : '35%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : '50%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#CA3D77', 'text' : '55%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#39A1E8', 'text' : '30%', 'textFontSize' : 16},
                    {'textFillStyle' : 'white', 'fillStyle' : '#3368E8', 'text' : 'SORRY', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : '30%', 'textFontSize' : 16},
-                   {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : 'NO LUCK', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#E65051', 'text' : '35%', 'textFontSize' : 16},
+                   {'textFillStyle' : 'white', 'fillStyle' : '#2FAF74', 'text' : '50%', 'textFontSize' : 16},
                 //    {'textFillStyle' : 'white', 'fillStyle' : '#ee1c24', 'text' : 'Bad Luck', 'textFontSize' : 25},
                 ],
                 'animation' :           // Specify the animation to use.

@@ -53,11 +53,12 @@ class MainController extends Controller
     public function career_wheel_post(Request $request)
     {
         $request->validate([
-            'phone_number' => 'required|unique:wheels,phone_number',
+            'phone_number' => 'required|size:11|unique:wheels,phone_number',
             'course_type' => 'required',
         ], [
             'phone_number.required' => 'ফোন নাম্বার ফাঁকা রাখা যাবে না',
             'phone_number.unique' => 'একই ফোন নাম্বার দুইবার ব্যবহার করা যাবে না',
+            'phone_number.size' => '১১ ডিজিটের ফোন নাম্বার দিন',
             'course_type.required' => 'কোন ধরনের কোর্স করতে চান, পছন্দ করুন'
         ]);
         $random_code = Str::upper(Str::random(5));
