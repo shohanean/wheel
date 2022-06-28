@@ -48,9 +48,6 @@
             </div>
         </div>
     </div>
-    @if (auth()->id() == 4)
-        <h1>Akram Hossain</h1>
-    @endif
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -64,7 +61,7 @@
                             {{ session('success') }}
                         </div>
                     @endif
-                    <table class="table table-bordered table-hover text-center">
+                    <table class="table table-bordered table-hover text-center" id="mainTable">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -74,7 +71,9 @@
                                 <th scope="col">Used Status</th>
                                 <th scope="col">Discount</th>
                                 <th scope="col">Code Generated At</th>
-                                <th scope="col">Action</th>
+                                @if (auth()->id() != 4)
+                                    <th scope="col">Action</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -113,11 +112,13 @@
                                         <br>
                                         Time: {{ $wheel->created_at->timezone('Asia/Dhaka')->format('H:i:s A') }}
                                     </td>
+                                    @if (auth()->id() != 4)
                                     <td>
                                         @if (!$wheel->used_status)
                                             <a href="{{ url('resend/code') }}/{{ $wheel->id }}" class="btn btn-sm btn-warning">Resend Code</a>
                                         @endif
                                     </td>
+                                    @endif
                                 </tr>
                             @endforeach
                         </tbody>
@@ -127,4 +128,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('footer_scripts')
+<script>
+    $(document).ready( function () {
+        $('#mainTable').DataTable();
+    } );
+</script>
 @endsection
