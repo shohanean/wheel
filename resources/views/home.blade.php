@@ -57,12 +57,12 @@
                                     <td>{{ $wheel->discount ?? '-' }}</td>
                                     <td>
                                         <div class="badge bg-info text-dark">
-                                            {{ $wheel->created_at->diffforhumans() }}
+                                            {{ $wheel->created_at->timezone('Asia/Dhaka')->diffforhumans() }}
                                         </div>
                                         <br>
-                                        Date: {{ $wheel->created_at->format('d/m/Y') }}
+                                        Date: {{ $wheel->created_at->timezone('Asia/Dhaka')->format('d/m/Y') }}
                                         <br>
-                                        Time: {{ $wheel->created_at->format('H:i:s A') }}
+                                        Time: {{ $wheel->created_at->timezone('Asia/Dhaka')->format('H:i:s A') }}
                                     </td>
                                     <td>
                                         @if (!$wheel->used_status)

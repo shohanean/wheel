@@ -24,7 +24,7 @@
                 <div class="card">
                 <div class="card-header text-center">
                     <h5 class="card-title">
-                        আপনার ফোন নাম্বার ও কোড দিয়ে ফেরিভাই করুন
+                        আপনার ফোন নাম্বার ও কোড দিয়ে ভেরিফাই করুন
                     </h5>
                 </div>
                 <div class="card-body">
