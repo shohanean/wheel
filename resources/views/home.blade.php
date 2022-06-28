@@ -2,6 +2,38 @@
 
 @section('content')
 <div class="container">
+    <div class="row justify-content-center mb-3">
+        <div class="col-md-2 text-center">
+            <div class="card">
+                <div class="card-header bg-info">
+                    Total
+                </div>
+                <div class="card-body">
+                    <h4>{{ $wheels->count() }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 text-center">
+            <div class="card">
+                <div class="card-header bg-success">
+                    Used
+                </div>
+                <div class="card-body">
+                    <h4>{{ $wheels->where('used_status', true)->count() }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 text-center">
+            <div class="card">
+                <div class="card-header bg-danger">
+                    Unused
+                </div>
+                <div class="card-body">
+                    <h4>{{ $wheels->where('used_status', false)->count() }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
