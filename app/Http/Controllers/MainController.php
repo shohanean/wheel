@@ -91,12 +91,17 @@ class MainController extends Controller
             $display_message = "অভিনন্দন! আপনি ক্রিয়েটিভ আইটির প্রফেশনাল কোর্সে রেগুলার ডিস্কাউন্টটি পেয়েছেন। খুব শীঘ্রই  আপনাকে কল করে বিস্তারিত জানিয়ে দেয়া হবে। আপনি চাইলে আমাদের অফিসিয়াল পেইজে নক করতে পারেন- m.me/creativeITInstitute অফারটি পেতে আপনার ফোনে পাঠানো মেসেজটি সংরক্ষণ করুন। অফারটি ৭ই জুলাই পর্যন্ত প্রযোজ্য।";
             $message_to_send = "Congratulations! You have received a regular discount on our professional courses. Soon you will get a call with details. You can also knock us at m.me/creativeITInstitute";
         }
-        Wheel::where('phone_number', $phone_number)->update([
-            'used_status' => true,
-            'discount' => $final_result
-        ]);
-        $response = Http::get("http://masking.metrotel.com.bd/smsnet/bulk/api?api_key=d5671ddcb22785c4bf647ffdc312dbcc273&mask=Creative IT&recipient=$phone_number&message=$message_to_send");
-        echo $display_message;
+        if(Wheel::where('phone_number', $phone_number)->first()->updated_at){
+            echo "You already tried";
+        }
+        else{
+            Wheel::where('phone_number', $phone_number)->where('updated_at', '=', NULL)->update([
+                'used_status' => true,
+                'discount' => $final_result
+            ]);
+            $response = Http::get("http://masking.metrotel.com.bd/smsnet/bulk/api?api_key=d5671ddcb22785c4bf647ffdc312dbcc273&mask=Creative IT&recipient=$phone_number&message=$message_to_send");
+            echo $display_message;
+        }
     }
     public function resend_code($id)
     {
