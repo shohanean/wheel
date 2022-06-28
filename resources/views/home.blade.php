@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center mb-3">
-        <div class="col-md-2 text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-2 text-center mb-3">
             <div class="card">
                 <div class="card-header bg-info">
                     Total
@@ -13,9 +13,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2 text-center">
+        <div class="col-md-2 text-center mb-3">
             <div class="card">
-                <div class="card-header bg-success">
+                <div class="card-header bg-success text-white">
                     Used
                 </div>
                 <div class="card-body">
@@ -23,13 +23,27 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2 text-center">
+        <div class="col-md-2 text-center mb-3">
             <div class="card">
-                <div class="card-header bg-danger">
+                <div class="card-header bg-danger text-white">
                     Unused
                 </div>
                 <div class="card-body">
                     <h4>{{ $wheels->where('used_status', false)->count() }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 text-center mb-3">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Summary
+                </div>
+                <div class="card-body">
+                    @foreach (App\Models\Wheel::where('discount', '!=', NULL)->groupBy('discount')->selectRaw('count(*) as total, discount')->get() as $item)
+                        <button type="button" class="btn btn-primary m-1">
+                            {{ $item->discount }} <span class="badge bg-secondary">{{ $item->total }}</span>
+                        </button>
+                    @endforeach
                 </div>
             </div>
         </div>
