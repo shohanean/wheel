@@ -52,7 +52,60 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    ভাগ্যবানদের তালিকা
+                    <div class="row">
+                        <div class="col-6">
+                            ভাগ্যবানদের তালিকা
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Download
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Download List</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{-- @for ($i = 1; $i <= $wheels->count(); $i+=200)
+                                            {{ print_r($loop) }}
+                                                <li>
+                                                    <a href="">{{ $i }} - {{ $i+200 }}</a>
+                                                </li>
+                                            @endfor --}}
+                                            @php
+                                                $i = 1;
+                                            @endphp
+                                            @while ($i <= $wheels->count())
+                                            @php
+                                                $start = $i;
+                                                $i+=200;
+                                                if($i > $wheels->count()){
+                                                    $end = $wheels->count();
+                                                }else{
+                                                    $end = $i-1;
+                                                }
+                                            @endphp
+                                            <li>
+                                                <a href="{{ url('lead/download') }}/{{ $start }}/{{ $end }}">
+                                                    Download from {{ $start }} to {{ $end }}
+                                                </a>
+                                            </li>
+                                            @endwhile
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card-body">

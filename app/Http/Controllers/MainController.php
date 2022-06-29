@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 use App\Models\Wheel;
 use Carbon\Carbon;
 use Session;
+use App\Exports\WheelsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MainController extends Controller
 {
@@ -113,5 +115,9 @@ class MainController extends Controller
             echo "Something is wrong, contact with developer";
         }
 
+    }
+    public function lead_download($start, $end)
+    {
+        return Excel::download(new WheelsExport($start), "Lead ($start-$end).xlsx");
     }
 }
