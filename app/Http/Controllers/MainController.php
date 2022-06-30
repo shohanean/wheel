@@ -87,10 +87,10 @@ class MainController extends Controller
         $phone_number = $request->session_value;
         $final_result = $request->final_text;
         if(strpos($final_result, "%") !== false){
-            $display_message = "অভিনন্দন! আপনি ক্রিয়েটিভ আইটির প্রফেশনাল কোর্সে $final_result স্পেশাল ডিস্কাউন্টটি পেয়েছেন। খুব শীঘ্রই  আপনাকে কল করে বিস্তারিত জানিয়ে দেয়া হবে। আপনি চাইলে আমাদের অফিসিয়াল পেইজে নক করতে পারেন- m.me/creativeITInstitute অফারটি পেতে আপনার ফোনে পাঠানো মেসেজটি সংরক্ষণ করুন। অফারটি ৭ই জুলাই পর্যন্ত প্রযোজ্য।";
+            $display_message = "অভিনন্দন! আপনি ক্রিয়েটিভ আইটির প্রফেশনাল কোর্সে $final_result স্পেশাল ডিস্কাউন্টটি পেয়েছেন। খুব শীঘ্রই  আপনাকে কল করে বিস্তারিত জানিয়ে দেয়া হবে। আপনি চাইলে আমাদের অফিসিয়াল পেইজে নক করতে পারেন- m.me/creativeITInstitute অফারটি পেতে আপনার ফোনে পাঠানো মেসেজটি সংরক্ষণ করুন।";
             $message_to_send = "Congratulations! You have received $final_result special discount on our professional courses. Soon you will get a call with details. You can also knock us at m.me/creativeITInstitute";
         } else{
-            $display_message = "অভিনন্দন! আপনি ক্রিয়েটিভ আইটির প্রফেশনাল কোর্সে রেগুলার ডিস্কাউন্টটি পেয়েছেন। খুব শীঘ্রই  আপনাকে কল করে বিস্তারিত জানিয়ে দেয়া হবে। আপনি চাইলে আমাদের অফিসিয়াল পেইজে নক করতে পারেন- m.me/creativeITInstitute অফারটি পেতে আপনার ফোনে পাঠানো মেসেজটি সংরক্ষণ করুন। অফারটি ৭ই জুলাই পর্যন্ত প্রযোজ্য।";
+            $display_message = "অভিনন্দন! আপনি ক্রিয়েটিভ আইটির প্রফেশনাল কোর্সে রেগুলার ডিস্কাউন্টটি পেয়েছেন। খুব শীঘ্রই  আপনাকে কল করে বিস্তারিত জানিয়ে দেয়া হবে। আপনি চাইলে আমাদের অফিসিয়াল পেইজে নক করতে পারেন- m.me/creativeITInstitute অফারটি পেতে আপনার ফোনে পাঠানো মেসেজটি সংরক্ষণ করুন।";
             $message_to_send = "Congratulations! You have received a regular discount on our professional courses. Soon you will get a call with details. You can also knock us at m.me/creativeITInstitute";
         }
         if(Wheel::where('phone_number', $phone_number)->first()->updated_at){
